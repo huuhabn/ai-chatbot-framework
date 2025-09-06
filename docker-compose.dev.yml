@@ -1,5 +1,4 @@
-version: '2'
-name: ai-chatbot-framework-dev
+name: ai-chatbot-dev
 services:
   mongodb:
     image: mongo:4.2.20
@@ -7,10 +6,12 @@ services:
     volumes:
       - mongodbdata:/data
 
-  app:
+  backend:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
+    hostname: backend
+    restart: always
     command:
       - /bin/bash
       - -c
@@ -23,9 +24,8 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./app:/usr/src/app/app
+      - ./backend:/usr/src/ai-chatbox/backend
     depends_on:
-      - migrate
       - mongodb
 
   frontend:
@@ -33,8 +33,8 @@ services:
       context: ./frontend
       dockerfile: dev.Dockerfile
     volumes:
-      - ./frontend/app:/app/app
-      - ./frontend/public:/app/public
+      - ./frontend/app:/usr/src/ai-chatbox/frontend/app
+      - ./frontend/public:/usr/src/ai-chatbox/frontend/public
     restart: always
     ports:
       - 3000:3000

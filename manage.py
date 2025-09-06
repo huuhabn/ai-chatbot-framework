@@ -4,7 +4,7 @@ from json import loads
 import logging
 import spacy
 from pymongo.errors import DuplicateKeyError
-from app.main import app
+from backend.main import app
 
 cli = typer.Typer()
 
@@ -14,9 +14,9 @@ logger = logging.getLogger(__name__)
 @cli.command()
 def migrate():
     async def async_migrate():
-        from app.admin.bots.store import ensure_default_bot, import_bot
-        from app.admin.integrations.store import ensure_default_integrations
-        from app.config import app_config
+        from backend.admin.bots.store import ensure_default_bot, import_bot
+        from backend.admin.integrations.store import ensure_default_integrations
+        from backend.config import app_config
 
         try:
             await ensure_default_bot()
@@ -48,7 +48,7 @@ def migrate():
 @cli.command()
 def train():
     async def async_train():
-        from app.bot.nlu.pipeline_utils import train_pipeline
+        from backend.bot.nlu.pipeline_utils import train_pipeline
 
         logger.info("Training models...")
         await train_pipeline(app)

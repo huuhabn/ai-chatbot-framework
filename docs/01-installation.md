@@ -17,6 +17,14 @@ Docker Compose version v2.14.1
 
 ### Steps to deploy
 
+Set up development environment
+
+```sh
+docker-compose -f docker-compose.dev.yml up -d
+# Or
+docker-compose -f docker-compose.dev.yml up -d --build
+```
+
 Get the service up and running.
 
 ```sh
@@ -36,16 +44,16 @@ Before proceeding, make sure you have access to a Kubernetes cluster and latest 
 Get the service up and running.
 
 ```sh
-helm dep update helm/ai-chatbot-framework
+helm dep update helm/ai-chatbot
 
-helm upgrade --install --create-namespace -n ai-chatbot-framework ai-chatbot-framework helm/ai-chatbot-framework
+helm upgrade --install --create-namespace -n ai-chatbot ai-chatbot helm/ai-chatbot
 ```
 
 To access the admin panel, open http://<your-external-ip>:8080/ in your favorite browser.
 
 port forward to local (optional)
 ```sh
-kubectl port-forward --namespace=ai-chatbot-framework service/ingress-nginx-controller 8080:80
+kubectl port-forward --namespace=ai-chatbot service/ingress-nginx-controller 8080:80
 ```
 
 ## Next Steps

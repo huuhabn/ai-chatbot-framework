@@ -1,13 +1,13 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # 1. Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
 
-WORKDIR /app
+WORKDIR /usr/src/ai-chatbox
 
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
@@ -20,26 +20,26 @@ RUN \
 
 # 2. Rebuild the source code only when needed
 FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+WORKDIR /usr/src/ai-chatbox
+COPY --from=deps /usr/src/ai-chatbox/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
 # 3. Production image, copy all the files and run next
 FROM base AS runner
-WORKDIR /app
+WORKDIR /usr/src/ai-chatbox
 
 ENV NODE_ENV=production
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-COPY --from=builder /app/public ./public
+COPY --from=builder /usr/src/ai-chatbox/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /usr/src/ai-chatbox/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /usr/src/ai-chatbox/.next/static ./.next/static
 
 
 USER nextjs

@@ -1,15 +1,15 @@
 import pytest
 from unittest.mock import Mock, patch, AsyncMock
-from app.bot.dialogue_manager.dialogue_manager import DialogueManager
-from app.bot.dialogue_manager.models import (
+from backend.bot.dialogue_manager.dialogue_manager import DialogueManager
+from backend.bot.dialogue_manager.models import (
     IntentModel,
     ParameterModel,
     ApiDetailsModel,
     UserMessage,
 )
-from app.bot.memory import MemorySaver
-from app.bot.memory.models import State
-from app.bot.nlu.pipeline import NLUPipeline
+from backend.bot.memory import MemorySaver
+from backend.bot.memory.models import State
+from backend.bot.nlu.pipeline import NLUPipeline
 
 
 @pytest.fixture

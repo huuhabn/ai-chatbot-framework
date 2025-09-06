@@ -5,8 +5,8 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-COPY package.json package-lock.json* .npmrc* ./
-RUN npm ci
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+RUN npm install -g pnpm && pnpm install --frozen-lockfile 
 
 COPY app ./app
 COPY public ./public
@@ -22,4 +22,4 @@ COPY postcss.config.mjs .
 # Note: Don't expose ports here, Compose will handle that for us
 
 # Start Next.js in development mode based on the preferred package manager
-CMD npm run dev
+CMD pnpm run dev

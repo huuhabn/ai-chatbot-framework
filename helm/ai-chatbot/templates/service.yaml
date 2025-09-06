@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ai-chatbot.fullname" . }}-backend
+  labels:
+    app: "ai-chatbot"
+    name: "ai-chatbot-backend"
+    {{- include "ai-chatbot.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 80
+      protocol: TCP
+      name: http-backend
+  selector:
+    name: "ai-chatbot-backend"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ai-chatbot.fullname" . }}-frontend
+  labels:
+    app: "ai-chatbot"
+    name: "ai-chatbot-frontend"
+    {{- include "ai-chatbot.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 80
+      protocol: TCP
+      name: http-frontend
+  selector:
+    name: "ai-chatbot-frontend"

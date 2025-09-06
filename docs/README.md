@@ -1,6 +1,6 @@
-# AI Chatbot Framework Documentation
+# AI Chatbot Documentation
 
-Welcome to the AI Chatbot Framework documentation. This documentation provides comprehensive guidance on setting up, developing, and deploying your chatbot.
+Welcome to the AI Chatbot documentation. This documentation provides comprehensive guidance on setting up, developing, and deploying your chatbot.
 
 ## Table of Contents
 

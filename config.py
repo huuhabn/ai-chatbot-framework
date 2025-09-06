@@ -10,7 +10,7 @@ class BaseConfig(BaseModel):
     Development: bool = False
 
     MONGODB_HOST: str = "mongodb://127.0.0.1:27017"
-    MONGODB_DATABASE: str = "ai-chatbot-framework"
+    MONGODB_DATABASE: str = "ai-chatbot"
 
     MODELS_DIR: str = "model_files/"
     DEFAULT_FALLBACK_INTENT_NAME: str = "fallback"

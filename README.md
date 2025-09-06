@@ -1,12 +1,7 @@
-<img src="https://i.ibb.co/vLR1wpG/logo.png" width="280"/>
+AI Chatbot self-hosted, DIY Chatbot building platform built in Python. With this tool, it’s easy to create Natural Language conversational scenarios with no coding efforts whatsoever. 
+The smooth UI makes it effortless to create and train conversations to the bot. AI Chatbot can live on any channel of your choice (such as Messenger, Slack etc.).
 
-[![Join the chat at https://gitter.im/ai-chatbot-framework/Lobby](https://badges.gitter.im/ai-chatbot-framework/Lobby.svg)](https://gitter.im/ai-chatbot-framework/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://github.com/alfredfrancis/ai-chatbot-framework/actions/workflows/evaluate-backend.yml/badge.svg)](https://github.com/alfredfrancis/ai-chatbot-framework/actions/workflows/evaluate-backend.yml) [![Build Status](https://github.com/alfredfrancis/ai-chatbot-framework/actions/workflows/evaluate-frontend.yml/badge.svg)](https://github.com/alfredfrancis/ai-chatbot-framework/actions/workflows/evaluate-frontend.yml)
-
-
-AI Chatbot Framework is an open-source, self-hosted, DIY Chatbot building platform built in Python. With this tool, it’s easy to create Natural Language conversational scenarios with no coding efforts whatsoever. 
-The smooth UI makes it effortless to create and train conversations to the bot. AI Chatbot Framework can live on any channel of your choice (such as Messenger, Slack etc.).
-
-You don’t need to be an expert at artificial intelligence to create an awesome chatbot that has AI capabilities. With this project you can create an AI powered chatbot in no time.  Read the [documentation](docs/README.md) to get started.
+With this project you can create an AI powered chatbot in no time.  Read the [documentation](docs/README.md) to get started.
 
 ![](docs/screenshots/admin_chat_screenshot.png)
 
@@ -35,15 +30,12 @@ Check out our [documentation](docs/README.md) to get started.
 
 ### Tech Stack
 
- - Python / FastAPI / Pydantic
- - MongoDB / Motor
- - React / NextJS
- - scikit-learn / Tensorflow / Keras
- - Spacy / python-crfsuite
- - Docker / docker-compose / Kubernetes / Helm
+ - Python / FastAPI / Pydantic: Backend API, request handling, data validation.
+ - MongoDB / Motor: Database for conversations, async access.
+ - React / NextJS: Chatbox admin UI.
+ - scikit-learn / Tensorflow / Keras: Machine learning / deep learning for intent classification & responses.
+ - Spacy / python-crfsuite: NLP tasks (tokenization, NER, entity extraction).
+ - Docker / docker-compose / Kubernetes / Helm: (Containerization, deployment, scaling, orchestration.)
 
-### Contributing
-
-Want to contribute? Check out our [contribution guidelines](CONTRIBUTING.md).
 
 <hr></hr>

@@ -1,6 +1,6 @@
 # Architecture Overview
 
-This document provides a comprehensive overview of the AI Chatbot Framework's architecture, explaining its key components, interactions, and data flow.
+This document provides a comprehensive overview of the AI Chatbot's architecture, explaining its key components, interactions, and data flow.
 
 ## High Level Architecture
 

@@ -13,7 +13,7 @@ const FacebookMessenger: React.FC<FacebookMessengerProps> = ({ integration, onUp
   const [isEnabled, setIsEnabled] = useState(integration.status);
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
-    verify: integration.settings.verify || "ai-chatbot-framework",
+    verify: integration.settings.verify || "ai-chatbot",
     secret: integration.settings.secret || "",
     pageAccessToken: integration.settings.page_access_token || ""
   });
@@ -25,7 +25,7 @@ const FacebookMessenger: React.FC<FacebookMessengerProps> = ({ integration, onUp
         const fetchedIntegration = await getIntegration<FacebookSettings>(integration.id);
         setIsEnabled(fetchedIntegration.status);
         setFormData({
-          verify: fetchedIntegration.settings.verify || "ai-chatbot-framework",
+          verify: fetchedIntegration.settings.verify || "ai-chatbot",
           secret: fetchedIntegration.settings.secret || "",
           pageAccessToken: fetchedIntegration.settings.page_access_token || ""
         });
